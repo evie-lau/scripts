@@ -5,10 +5,16 @@
 // run in JavaScript Console
 
 var deals = document.querySelectorAll("#result-list figure > a");
-deals.forEach(
-	function(deal) { 
-		console.log(deal.href) 
-		var claimUrl = deal.href + "/claim";
-		window.open(claimUrl);
-	}
-);
+
+var counter = 0;
+var totalCount = deals.length;
+
+var claimNext = function(){
+	var claimUrl = deals[counter].href + "/claim";
+	var claimWindow = window.open(claimUrl); 
+	claimWindow.addEventListener('load', function() { 
+		claimWindow.close();
+		counter++;
+		claimNext();
+	} , false);
+}
