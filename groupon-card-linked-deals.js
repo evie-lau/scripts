@@ -10,6 +10,9 @@ var counter = 0;
 var totalCount = deals.length;
 
 var claimNext = function(){
+	if (counter >= totalCount) { 
+		return;
+	}
 	var claimUrl = deals[counter].href + "/claim";
 	var claimWindow = window.open(claimUrl); 
 	claimWindow.addEventListener('load', function() { 
@@ -18,3 +21,5 @@ var claimNext = function(){
 		claimNext();
 	} , false);
 }
+
+claimNext();
