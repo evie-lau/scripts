@@ -1,11 +1,11 @@
 // GROUPON card-linked deals
 
-// Log into Groupon, and open "https://www.groupon.com/occasion/cash-back-deals"
+// Log into Groupon, and open "https://www.groupon.com/landing/groupon-plus"
 // Expand all deals until everything is shown
 // run in JavaScript Console
 // make sure to allow all popups for groupon.com
 
-var deals = document.querySelectorAll("#result-list figure > a");
+var deals = document.querySelectorAll("figure > a.grpn-dc");
 
 var counter = 0;
 var totalCount = deals.length;
